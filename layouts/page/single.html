@@ -23,7 +23,6 @@
             <div class="container">
                 {{ if .Params.page }}
                   {{ partial .Params.page . }}
-
                   <div class="row">
                       <div class="col-md-12">
                           <div>
@@ -31,12 +30,10 @@
                           </div>
                       </div>
                   </div>
-
                 {{ else }}
                   <div class="row">
 
                       <div class="col-md-12">
-
                           <div>
                             {{ .Content }}
                           </div>
