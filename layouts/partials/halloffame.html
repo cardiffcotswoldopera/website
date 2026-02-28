@@ -1,0 +1,21 @@
+{{ if . }}
+<div class="hall-of-fame">
+    {{ range sort . }}
+        {{ if hasSuffix . "_FF"}}
+            <div class="plaque founding">
+                {{ $name := replaceRE `_FF` "" . }}
+                <div class="friend_name">
+                    <span class="p_name">{{ $name }}</span>
+                </div>
+            </div>
+        {{ else }}
+            <div class="plaque">
+                <div class="friend_name">
+                    <span class="p_name">{{ . }}</span>
+                </div>
+            </div>
+        {{ end }}
+    {{ end }}
+</div>
+
+{{ end }}

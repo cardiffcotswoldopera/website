@@ -63,11 +63,26 @@
                                 {{ range .Children.ByWeight }}
                                     {{ $column := printf "%s" .Post }}
                                     {{ if eq $column "1" }}
-                                    <h5>{{ .Name }}</h5>
+                                    {{ if ne .URL "" }} 
+                                        <a href="{{ .URL }}"><h5>{{ .Name }}</h5></a>
+                                    {{ else }}
+                                        <h5>{{ .Name }}</h5>
+                                    {{ end }}
                                     {{ if .HasChildren }}
                                     <ul>
                                     {{ range .Children.ByWeight }}
-                                    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                                        {{ if hasPrefix .Name `#` }}
+                                            {{ $dir := replaceRE `#` "" .Name }}
+                                            {{ $pdir := replaceRE `section.` "" .Parent  }}
+                                            {{ if isset site.Data $dir }}
+                                                {{ $entries := sort (index site.Data $dir) "weight" }}
+                                                {{ range $entries }}
+                                                    <li><a href='{{ printf "/%s#%s" $pdir .id }}'>{{ .title }}</a></li>
+                                                {{ end }}
+                                            {{ end }}
+                                        {{ else }}
+                                            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                                        {{ end }}
                                     {{- end }}
                                     </ul>
                                     {{ end }}
@@ -139,10 +154,13 @@
                   </li>
                   {{ end }}
                   {{ end }}
+
+                  <li class="dropdown donate">
+                    <a href="https://cafdonate.cafonline.org/29927#!/DonationDetails">Donate</a>
+                  </li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
-
             <div class="collapse clearfix" id="search">
                 <form class="navbar-form" role="search">
                     <div class="input-group">

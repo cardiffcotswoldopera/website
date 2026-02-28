@@ -1,0 +1,15 @@
+
+<div id="container">
+  <h2>Friends of Cardiff Cotswold Opera</h2>
+
+  <p>We are enormously grateful to our Founding Friends, Friends, and supporters, without whose generosity Cardiff Cotswold Opera would not be possible</p>
+  
+  <p>Your support enables us to continue our mission to bring accessible, top quality opera productions to new audiences</p>
+
+  <p>As a show of appreciation, we want to thank our supporters directly. Below is a list of our Friends (blue), and those life-long Founding Friends whose help in our first year has made a huge difference (gold)</p>
+
+  {{ if isset site.Data "friends" }}
+    {{ partial "halloffame.html" site.Data.friends.friend }}
+  {{ end }}
+
+</div>

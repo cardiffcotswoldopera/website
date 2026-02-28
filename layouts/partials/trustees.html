@@ -1,0 +1,46 @@
+<div id="trustees_container">
+    <h1 id="trustees">Meet our Trustees</h1>
+    <div id="trustees_list" class="team_view col-md-12">
+    {{ if isset site.Data.about "trustees" }}
+        {{ $length := len site.Data.about.trustees }}
+        {{ $entries := sort site.Data.about.trustees "weight" }}
+        {{ range $i, $sequence := seq $length }}
+            {{ $element := index $entries $i }}
+            <div class="trustee_view">
+                <div class="avatar">
+                    <img src="{{ $element.image }}">
+                    <div class="overlay">
+                        <div class="text">{{$element.role}}</div>
+                    </div>
+                </div>
+                <div class="bio">
+                    <button type="button" class="trustee_name collapsible">{{$element.title}}</button>
+                    <div class="collapse_content">
+                        <span style="font-weight: 600;">{{$element.role}}</span><br />
+                        <span>{{$element.description | markdownify}}</span>
+                    </div>
+                </div>
+            </div>
+        {{ end }}
+    {{ end }}
+    </div>
+</div>
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].nextElementSibling.style.display = "none"
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>

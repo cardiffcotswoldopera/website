@@ -1,0 +1,11 @@
+
+  {{ if isset site.Data "support" }}
+    {{ $length := len site.Data.support }}
+    {{ $entries := sort site.Data.support "weight" }}
+    {{ range $i, $sequence := seq $length }}
+    <div id="container">
+          {{ $element := index $entries $i }}
+      {{ partial "description.html" $element }}
+    {{ end }}
+    {{ end }}
+    </div>

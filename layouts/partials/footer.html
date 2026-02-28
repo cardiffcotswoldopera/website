@@ -53,37 +53,82 @@
 	    <a href="{{ default "/contact" .Site.Params.contact_url }}" class="btn btn-small btn-template-main">{{ i18n "contactGoTo" }}</a>
 
             <hr class="hidden-md hidden-lg hidden-sm">
-
+        
         </div>
         <!-- /.col-md-4 -->
         {{ end }}
 
     </div>
-    <!-- /.container -->
-</footer>
-
-<!-- /#footer -->
-
-<!-- *** FOOTER END *** -->
-
-<!-- *** COPYRIGHT ***
-_________________________________________________________ -->
-
-<div id="copyright">
-    <div class="container">
-        <div class="col-md-12">
+    <div class="container" id="copyright">
+        <div class="col-md-6">
             {{ if isset .Site.Params "copyright" }}
             <p class="pull-left">{{ .Site.Params.copyright | safeHTML }}</p>
             {{ end }}
-            <p class="pull-right">
-              {{ i18n "templateBy" | markdownify }} <a href="https://bootstrapious.com/universal-business-e-commerce-template">Bootstrapious</a>.
-              <!-- Not removing this link is part of the licence conditions of the template. Thanks for understanding :) -->
-
-              {{ i18n "portedBy" | markdownify }} <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>.
+            
+            {{ if isset .Site.Params "show_socials" }}
+            {{ if eq .Site.Params.show_socials true }}
+                <div id="socials">
+                <span style="font-size: 15pt; margin-right: 2em; ">Contact</span>
+                <a href="{{.Site.Params.socials.email}}"><i class="fa fa-envelope-open"></i></a> | 
+                <a href="{{.Site.Params.socials.facebook}}"><i class="fab fa-facebook"></i></a> | 
+                <a href="{{.Site.Params.socials.instagram}}"><i class="fab fa-instagram"></i></a> 
+                </div>
             </p>
+            {{ end }}   
+            {{ end }}
+        </div>
+        <div class="col-md-6">
+            {{ if isset .Site.Params "mailing_list"}}
+            <div id="subscribe">
+            <h5>Sign up for our newsletter</h5>
+            <p>Sign up to be the first to know about our shows, ticket availability, and other news through our newsletter</p>
+                <form id="newsletter-form" action="{{.Site.Params.mailing_list}}" method="post">
+                <input type="email" id="email" name="email" placeholder="Email address" required>
+                <button id="btn_subscribe" class="btn" type="submit">Subscribe</button>
+                </form>
+            <p>We respect your privacy. Your email will only be used to contact you about Cardiff Cotswold Opera events</p>
+            </div>
+            {{ end }}
         </div>
     </div>
 </div>
+</footer>
+
+<script>
+    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Stop the page from reloading
+    
+    const form = this;
+    const button = document.getElementById('btn_subscribe');
+    const container = document.getElementById('subscribe');
+    const formData = new FormData(form);
+
+    // Visual feedback: Disable button while processing
+    button.disabled = true;
+    button.innerText = 'Subscribing...';
+
+    // Send the request to your Apps Script URL
+    fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors' // Critical for Google Apps Script redirects
+    })
+    .then(() => {
+        // With 'no-cors', we can't read the response body, 
+        // but if it doesn't throw an error, it's safe to assume success.
+        container.innerHTML = `
+            <h5>Thank you for subscribing!</h5>
+            <p>You've been added to our mailing list. We look forward to seeing you at our next performance!</p>
+        `;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        button.disabled = false;
+        button.innerText = 'Subscribe';
+        alert('Sorry, there was an error. Please try again later or <a href="mailto:cardiffcotswoldopera@gmail.com">email us</a> to ask to be added to the mailing list.');
+    });
+});
+</script>
 <!-- /#copyright -->
 
 <!-- *** COPYRIGHT END *** -->

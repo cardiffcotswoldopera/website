@@ -1,0 +1,20 @@
+<div id="container">
+    <div id="current-container container">
+        <h1 id="whats-on">What's on</h1>
+
+        {{ if isset site.Data "current" }}
+            {{ $length := len site.Data.current }}
+            {{ $entries := sort site.Data.current "weight" }}
+            {{ range $i, $sequence := seq $length }}
+                <div id="container">
+                {{ $element := index $entries $i }}
+                {{ partial "description.html" $element }}
+                </div>
+            {{ end }}
+        {{ end }}
+    </div>
+    <div id="past-container container">
+        <h2 id="past-productions">Have a look at some of our past productions</h2>
+        {{ partial "past_productions.html" }}
+    </div>
+</div> 

@@ -1,0 +1,187 @@
+{{ if . }}
+    <div id="" class="row desc_container">
+
+        {{ if eq .block_type 1 }}
+            <div class="text_container text_container-1">
+                <h1 id="{{.id}}">{{.title}}</h1>
+                <h3>{{.subtitle | markdownify}}</h1>
+                <div>
+                    {{ .description | markdownify}}
+                    {{ if .button_enable }}
+                        <a href="{{ .button_url }}" class="btn btn-template-transparent-black btn-lg">
+                        {{ .button_text | markdownify }}
+                        </a>
+                    {{ end }}
+                </div>
+            </div>
+            <div class="img_container fade_edge">
+                <img src="{{ .image }}">
+            </div>
+        {{ else if  eq .block_type 2 }}
+            <div class="img_container fade_edge">
+                <img src="{{ .image }}">
+            </div>
+            <div class="text_container text_container-2">
+                <h1 id="{{.id}}">{{.title}}</h1>
+                <div>
+                    {{ .description | markdownify}}
+                    {{ if .button_enable }}
+                        <a href="{{ .button_url }}" class="btn btn-template-transparent-black btn-lg">
+                        {{ .button_text | markdownify }}
+                        </a>
+                    {{ end }}
+                </div>
+            </div>
+
+        {{ else if eq .block_type 3 }}
+            <div class="text_container text_container-1">
+                <h1 id="{{.id}}">{{.title}}</h1>
+                <h3>{{.subtitle | markdownify}}</h1>
+                <div>
+                    {{ .description | markdownify}}
+                    {{ if ne .description_long "" }}
+                        <p></p>
+                        <span id="readmore_{{ .id }}" class="readmore">{{ .description_long | markdownify }}</span>
+                        <a onclick="document.getElementById('readmore_{{ .id }}').classList.toggle('visible');"><i>Read more</i></a>
+                        <p></p>
+                    {{ end }}
+                    {{ if ne .events "" }}
+                    <div class="event_container">
+                        {{ range sort .events "event_weight" }}
+                        <div class="event">
+                            <div class="event_view evicon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <div class="event_view date">{{ .date }}</div>
+                            <div class="event_view venue"><a href="{{.venue_link}}"><i class="fa fa-map-location-dot"></i> {{.venue}}</a></div>
+                            {{ if eq .url "TBD" }}
+                                <div class="event_view boxoffice">Box office details coming soon!</div>
+                            {{ else }}
+                                <div class="event_view boxoffice"><a href="{{.url}}" class="btn btn-template-transparent-black btn-lg">Buy tickets</a></div>
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                    {{ if .button_enable }}
+                        <a href="{{ .button_url }}" class="btn btn-template-transparent-black btn-lg">
+                        {{ .button_text | markdownify }}
+                        </a>
+                    {{ end }}
+                </div>
+            </div>
+            <div class="img_container_noresize">
+                <img src="{{ .image }}">
+            </div>
+
+        {{ else if eq .block_type 4 }}
+            <div class="img_container_noresize">
+                <img src="{{ .image }}">
+            </div>
+            <div class="text_container text_container-1">
+                <h1 id="{{.id}}">{{.title}}</h1>
+                <h3>{{.subtitle | markdownify}}</h1>
+                <div>
+                    {{ .description | markdownify}}
+                    {{ if ne .description_long "" }}
+                        <p></p>
+                        <span id="readmore_{{ .id }}" class="readmore">{{ .description_long | markdownify }}</span>
+                        <a onclick="document.getElementById('readmore_{{ .id }}').classList.toggle('visible');"><i>Read more</i></a>
+                        <p></p>
+                    {{ end }}
+                    {{ if ne .events "" }}
+                    <div class="event_container">
+                        {{ range sort .events "event_weight" }}
+                        <div class="event">
+                            <div class="event_view evicon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <div class="event_view date">{{ .date }}</div>
+                            <div class="event_view venue"><a href="{{.venue_link}}"><i class="fa fa-map-location-dot"></i> {{.venue}}</a></div>
+                            {{ if eq .url "TBD" }}
+                                <div class="event_view boxoffice"><a href="{{.url}}" class="btn btn-template-transparent-black btn-lg">Buy tickets</a></div>
+                            {{ else }}
+                                <div class="event_view boxoffice">Box office details coming soon!</div>
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                    {{ if .button_enable }}
+                        <a href="{{ .button_url }}" class="btn btn-template-transparent-black btn-lg">
+                        {{ .button_text | markdownify }}
+                        </a>
+                    {{ end }}
+                </div>
+            </div>
+        {{ end }}
+    </div>
+{{ end }}
+<div class="separator"></div>
+
+<script>
+    // Function to adjust image height and reset margins
+function adjustImageHeightAndMargins() {
+    // Select all desc_container elements
+    const containers = document.querySelectorAll('.desc_container');
+
+    // Iterate over each container
+    containers.forEach(container => {
+        console.log(container)
+        if (window.screen.width > 800) {
+            // Select the text and image containers
+            const textContainer = container.querySelector('.text_container');
+            const imgContainer = container.querySelector('.img_container');
+
+            // Check if both containers exist
+            if (textContainer && imgContainer) {
+                // Get the height of the text container
+                const textHeight = textContainer.offsetHeight;
+
+                // Set the height of the image container
+                imgContainer.style.height = `${textHeight}px`;
+                imgContainer.style.position = 'relative';
+                imgContainer.style.overflow = 'visible';
+                imgContainer.style.margin = '0'; // Remove margins
+
+                // Select the image element
+                const img = imgContainer.querySelector('img');
+
+                // Set the height of the image
+                img.style.height = `${textHeight}px`;
+                img.style.width = '100%'; // Optional: scale the image to fit the container
+                img.style.objectFit = 'cover'; // Optional: maintain aspect ratio
+
+                // Find the top container
+                let topContainer = container;
+                while (topContainer.parentNode && !topContainer.classList.contains('container')) {
+                    topContainer = topContainer.parentNode;
+                }
+
+                // Get the bounding rectangles
+                const topContainerRect = topContainer.getBoundingClientRect();
+                const imgRect = imgContainer.getBoundingClientRect();
+
+                // Calculate distances to edges
+                const leftDistance = imgRect.left - topContainerRect.left;
+                const rightDistance = topContainerRect.right - (imgRect.left + imgRect.width);
+
+                // Reset margins
+                if (leftDistance <= rightDistance) {
+                    imgContainer.style.left = `-${leftDistance}px`;
+                    imgContainer.style.right = 'auto';
+                } else {
+                    imgContainer.style.right = `-${rightDistance}px`;
+                    imgContainer.style.left = 'auto';
+                }
+            }
+        }
+    });
+}
+
+// Call the function on page load and on window resize
+window.addEventListener('load', adjustImageHeightAndMargins);
+window.addEventListener('resize', adjustImageHeightAndMargins);
+
+
+</script>

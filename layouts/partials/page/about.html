@@ -1,0 +1,14 @@
+
+<div id="container">
+  {{ if isset site.Data.about "texts" }}
+    {{ $length := len site.Data.about.texts }}
+    {{ $entries := sort site.Data.about.texts "weight" }}
+    {{ range $i, $sequence := seq $length }}
+      {{ $element := index $entries $i }}
+      {{ partial "description.html" $element }}
+    {{ end }}
+  {{ end }}
+
+  
+  {{ partial "trustees.html" }}
+</div>

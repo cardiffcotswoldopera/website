@@ -1,0 +1,130 @@
+
+defaultContentLanguage="en"
+style = "green"
+
+[menu]
+    [[menu.main]]
+        name = "Home"
+        url = "/"
+        weight = 1
+
+    [[menu.main]]
+        name = "About us"
+        identifier = "menu.about"
+        url = "/about-us"
+        weight = 2
+
+    [[menu.main]]
+        name = "Support Us"
+        identifier = "menu.support"
+        url = "/support-us"
+        weight = 3
+
+    [[menu.main]]
+        name = "Productions"
+        identifier = "menu.productions"
+        url = "/img/photogrid.jpg"
+        weight = 4
+
+    [[menu.main]]
+        name = "Our Friends"
+        url = "/our-friends"
+        weight = 5
+
+    [[menu.main]]
+        name = "Contact"
+        url = "/contact"
+        weight = 6
+
+[[menu.main]]
+    name = "Who we are"
+    url = "/about-us#who-we-are"
+    weight = 1
+    parent = "menu.about"
+
+[[menu.main]]
+    name = "Our history"
+    url = "/about-us#history"
+    weight = 2
+    parent = "menu.about"
+
+[[menu.main]]
+    name = "Meet the Trustees"
+    url = "/about-us#trustees"
+    weight = 3
+    parent = "menu.about"
+
+[[menu.main]]
+    name = "Become a Friend"
+    url = "/support-us#become-a-friend"
+    weight = 1
+    parent = "menu.support"
+
+[[menu.main]]
+    name = "One-off Donation"
+    url = "/support-us#one-off-donation"
+    weight = 2
+    parent = "menu.support"
+
+[[menu.main]]
+    name       = "What's on"
+    identifier = "section.productions"
+    url        = "/productions#whats-on"
+    url_enable = true
+    weight     = 1
+    parent     = "menu.productions"
+    post       = 1
+
+[[menu.main]]
+    name       = "Archive"
+    identifier = "section.past"
+    url        = ""
+    weight     = 2
+    parent     = "menu.productions"
+    post       = 2
+
+[[menu.main]]
+    name       = "#current"
+    url        = ""
+    weight     = 1
+    parent     = "section.productions"
+
+[[menu.main]]
+    name = "Past performances"
+    url = "/productions#past-productions"
+    weight = 2
+    parent = "section.past"
+
+[params]
+    site_title = "Cardiff Cotswold Opera"
+    disabled_logo = false
+    logo_text = "Cardiff Cotswold Opera"
+    mailing_list = "https://script.google.com/macros/s/AKfycbz8WxaRf1zbj5Hmvc6LiKCI4HS8ntwnee8dIHciWAJT9S0j8i08BsdBwc7ozqrulltcXQ/exec"
+    contact_form_url = "https://script.google.com/macros/s/AKfycbxoP46GXkpaTCVG3OTxsnAD-gO_0Aiv0GMOzaoLlpa1vhFfhLpmgq-PK9OWwg3k1Ia-mw/exec"
+    
+
+    logo = "img/logos/CCO_logo_banner.png"
+    logo_small = "img/logos/CCO_logo.png"
+    copyright = "<h4>Cardiff Cotswold Opera</h4><br />© 2025 Cardiff Cotswold Opera | Smith House, George Street, Nailsworth, Stroud, England, GL6 0AG <br />Cardiff Cotswold Opera Ltd. is a registered charity: 1211808 | Company number: 15930811"
+    contact_url = "https://cardiffcotswoldopera.org"
+    show_socials = true
+
+[params.socials]
+    email = "mailto:cardiffcotswoldopera@gmail.com"
+    facebook = "https://www.facebook.com/cardiffoperagroup/"
+    instagram = "http://instagram.com/cardiffopera"
+
+[params.see_more]
+    enable = true
+    title = "Cardiff Cotswold Opera"
+    image = "/img/logos/banner.png"
+    id = "landing_banner"
+    dark_bg = true
+    subtitle = "Unlocking the world of opera\n\nfor new audiences"
+    link_url = "/productions"
+    link_text = "What's on"
+
+[params.carousel]
+    autoplay = true
+    slide_speed = 2000
+    pagination_speed = 1000 
