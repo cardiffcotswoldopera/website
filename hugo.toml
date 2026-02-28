@@ -6,19 +6,19 @@ style = "green"
 [menu]
     [[menu.main]]
         name = "Home"
-        url = "/website"
+        url = "/"
         weight = 1
 
     [[menu.main]]
         name = "About us"
         identifier = "menu.about"
-        url = "/website/about-us"
+        url = "/about-us"
         weight = 2
 
     [[menu.main]]
         name = "Support Us"
         identifier = "menu.support"
-        url = "/website/support-us"
+        url = "/support-us"
         weight = 3
 
     [[menu.main]]
@@ -29,12 +29,12 @@ style = "green"
 
     [[menu.main]]
         name = "Our Friends"
-        url = "/website/our-friends"
+        url = "/our-friends"
         weight = 5
 
     [[menu.main]]
         name = "Contact"
-        url = "/website/contact"
+        url = "/contact"
         weight = 6
 
 [[menu.main]]
@@ -107,7 +107,7 @@ style = "green"
     logo = "img/logos/CCO_logo_banner.png"
     logo_small = "img/logos/CCO_logo.png"
     copyright = "<h4>Cardiff Cotswold Opera</h4><br />© 2025 Cardiff Cotswold Opera | Smith House, George Street, Nailsworth, Stroud, England, GL6 0AG <br />Cardiff Cotswold Opera Ltd. is a registered charity: 1211808 | Company number: 15930811"
-    contact_url = "https://cardiffcotswoldopera.org"
+    contact_url = "https://cardiffcotswoldopera.org/"
     show_socials = true
 
 [params.socials]
