@@ -6,19 +6,19 @@ style = "green"
 [menu]
     [[menu.main]]
         name = "Home"
-        url = "/"
+        url = "/website"
         weight = 1
 
     [[menu.main]]
         name = "About us"
         identifier = "menu.about"
-        url = "/about-us"
+        url = "/website/about-us"
         weight = 2
 
     [[menu.main]]
         name = "Support Us"
         identifier = "menu.support"
-        url = "/support-us"
+        url = "/website/support-us"
         weight = 3
 
     [[menu.main]]
@@ -29,12 +29,12 @@ style = "green"
 
     [[menu.main]]
         name = "Our Friends"
-        url = "/our-friends"
+        url = "/website/our-friends"
         weight = 5
 
     [[menu.main]]
         name = "Contact"
-        url = "/contact"
+        url = "/website/contact"
         weight = 6
 
 [[menu.main]]
