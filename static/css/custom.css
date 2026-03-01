@@ -230,8 +230,7 @@ h1 {
 
 .avatar {
   position: relative;
-  width: 25vw;
-  height: 25vw;
+  width: inherit;
   margin: auto;
 }
 
