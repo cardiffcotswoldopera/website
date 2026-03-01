@@ -97,6 +97,8 @@ style = "green"
     parent = "section.past"
 
 [params]
+    baseURL = "https://cardiffcotswoldopera.org"
+    protocol = "https"
     site_title = "Cardiff Cotswold Opera"
     disabled_logo = false
     logo_text = "Cardiff Cotswold Opera"
