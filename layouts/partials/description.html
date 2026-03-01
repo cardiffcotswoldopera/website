@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="img_container fade_edge">
-                <img src="{{ .image }}">
+                <img src="{{ .image | relURL }}">
             </div>
         {{ else if  eq .block_type 2 }}
             <div class="img_container fade_edge">
