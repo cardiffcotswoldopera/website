@@ -39,7 +39,7 @@
 {{ end }}
 
 <!-- Custom stylesheet - for your changes -->
-<link href="{{ "css/custom.css" | relURL }}?{{ now.Unix }}" rel="stylesheet">
+<link href="{{ "css/custom.css" | absURL }}?{{ now.Unix }}" rel="stylesheet">
 
 <!-- Responsivity for older IE -->
 {{ `
