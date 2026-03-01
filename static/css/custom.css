@@ -220,9 +220,11 @@ h1 {
 .team_view{
   display: grid;
   grid-template-columns: auto auto;
+  align-content: center;
 }
 
 .trustee_view {
+  display: grid;
   align-items: center;
   padding: 1em;
   width: 30vw;
@@ -230,7 +232,8 @@ h1 {
 
 .avatar {
   position: relative;
-  width: inherit;
+  width: 25vw;
+  height: 25vw;
   margin: auto;
 }
 
