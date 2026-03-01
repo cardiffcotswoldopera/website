@@ -118,7 +118,7 @@ style = "green"
 [params.see_more]
     enable = true
     title = "Cardiff Cotswold Opera"
-    image = "/img/logos/banner.png"
+    image = "/website/img/logos/banner.png"
     id = "landing_banner"
     dark_bg = true
     subtitle = "Unlocking the world of opera\n\nfor new audiences"
