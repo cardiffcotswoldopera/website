@@ -97,7 +97,7 @@ style = "green"
     parent = "section.past"
 
 [params]
-    baseURL = "https://cardiffcotswoldopera.org"
+    baseURL = "https://cardiffcotswoldopera.org/"
     protocol = "https"
     site_title = "Cardiff Cotswold Opera"
     disabled_logo = false
@@ -120,7 +120,7 @@ style = "green"
 [params.see_more]
     enable = true
     title = "Cardiff Cotswold Opera"
-    image = "/website/img/logos/banner.png"
+    image = "/img/logos/banner.png"
     id = "landing_banner"
     dark_bg = true
     subtitle = "Unlocking the world of opera\n\nfor new audiences"
