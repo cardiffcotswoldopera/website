@@ -15,11 +15,11 @@
                 </div>
             </div>
             <div class="img_container fade_edge">
-                <img src="{{ .image | absURL }}">
+                <img src="{{ .image }}">
             </div>
         {{ else if  eq .block_type 2 }}
             <div class="img_container fade_edge">
-                <img src="{{ .image | relURL }}">
+                <img src="{{ .image }}">
             </div>
             <div class="text_container text_container-2">
                 <h1 id="{{.id}}">{{.title}}</h1>
