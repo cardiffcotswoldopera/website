@@ -2,7 +2,7 @@ title: Murder at the Opera
 subtitle: | 
   Murder Mystery Concert
 id: 'mato'
-image: '/img/photos/productions/mato2026.jpeg'
+image: '/img/photos/productions/mato2026.jpg'
 weight: 2
 block_type: 3
 events: 
@@ -10,8 +10,8 @@ events:
     event_weight: 1
     date: April 11th 2026
     venue: Thornbury Arts Festival
-    venue_link: https://tickets.thornburyartsfestival.org.uk/index.php?cPath=153
-    url: TBC 
+    venue_link: https://thornburyartsfestival.org.uk/plan-your-visit/how-to-get-here
+    url: https://tickets.thornburyartsfestival.org.uk/index.php?cPath=153
   - event: 
     event_weight: 2
     date: April 18th 2026
