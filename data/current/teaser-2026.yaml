@@ -3,7 +3,7 @@ subtitle: |
   Exciting things in store
 id: 'teaser'
 image: '/img/photos/productions/shakespeare.png'
-weight: 2
+weight: 3
 block_type: 4
 events: 
   - event: 
