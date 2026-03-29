@@ -458,6 +458,14 @@ h1 {
   background-color: goldenrod;
 }
 
+#landing_banner .btn {
+  background-color: var(--button-border);
+}
+
+#landing_banner .btn:hover {
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+}
 
 
 @media  only screen and (max-width: 800px) {
