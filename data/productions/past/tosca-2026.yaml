@@ -3,7 +3,7 @@ subtitle: |
   A special charity performance
 id: 'teaser'
 image: '/img/photos/productions/tosca-2026.png'
-weight: 1
+weight: 15
 block_type: 3
 events: 
   - event: 
